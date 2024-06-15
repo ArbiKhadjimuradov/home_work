@@ -1,0 +1,6 @@
+.gitignore
+.idea
+pyproject.toml
+poetry.lock
+Flake8
+mypy
