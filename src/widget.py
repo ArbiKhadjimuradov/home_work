@@ -1,6 +1,6 @@
-from masks import get_mask_account
-from masks import get_mask_card_number
 from datetime import datetime
+from masks import get_mask_account, get_mask_card_number
+from typing import Any
 
 
 def mask_account_card(cards_number: str) -> str:
@@ -15,7 +15,7 @@ def mask_account_card(cards_number: str) -> str:
         return mask_card
 
 
-def get_data(data: str) -> str:
+def get_data(data: Any) -> Any:
     """Функция которая возврашает дату"""
 
     d = datetime.strptime(data, format("%Y-%m-%dT%H:%M:%S.%f"))
