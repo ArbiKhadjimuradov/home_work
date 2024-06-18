@@ -6,7 +6,7 @@ old_list = [{"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.5
 ]
 
 
-def filter_by_state(old_list: list, state: str = "EXECUTED") -> list[Any]:
+def filter_by_state(old_list: list, state: str = "EXECUTED") -> list[str]:
     """Функция которая получает список словарей и возвращает новый список,
     содержащий только те словари, у которых ключ state содержит переданное
     в функцию значение"""
@@ -19,13 +19,16 @@ def filter_by_state(old_list: list, state: str = "EXECUTED") -> list[Any]:
     return new_list
 
 
-
-def sort_by_date(old_list: list, date=true ) -> list[Any]:
+def sort_by_date(old_list: list, date=True) -> list[str]:
+    """ функция которая возврашает список по убыванию """
     sorted_old_list = sorted(old_list, key=lambda x : x['date'], reverse=date)
-    return 
+    return sorted_old_list
+
 
 
 
 if __name__ == "__main__":
     print(filter_by_state(old_list, state="EXECUTED"))
-    print(filter_by_state(old_list, state="CANCELED"))
+    #print(filter_by_state(old_list, state="CANCELED"))
+    print(sort_by_date(old_list, date=True))
+
