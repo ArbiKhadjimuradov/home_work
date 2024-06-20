@@ -1,9 +1,12 @@
 def get_mask_card_number(card: str) -> str:
     """Функция которая маскирует номер карты"""
-    return f"{card[:4]} {card[4:6]}{'*' * 2} {'*' * 4} {card[12:]}"
+    if len(card) == 16:
+        return f"{card[:4]} {card[4:6]}{'*' * 2} {'*' * 4} {card[12:]}"
+    else:
+        return ""
 
 if __name__ == '__main__':
-    print(get_mask_card_number("7000792289606361"))
+    print(get_mask_card_number(""))
 
 
 def get_mask_account(acc_number: str) -> str:
@@ -12,3 +15,4 @@ def get_mask_account(acc_number: str) -> str:
 
 if __name__ == '__main__':
     print(get_mask_account("73654108430135874305"))
+
