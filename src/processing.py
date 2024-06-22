@@ -11,9 +11,12 @@ def filter_by_state(old_list: list, state: str = "EXECUTED") -> list[str]:
     содержащий только те словари,у которых ключ state содержит переданное
     в функцию значение"""
     new_list = []
+    new_list_for_canceled = []
     for i in old_list:
         if i.get("state") == state:
             new_list.append(i)
+        else:
+            new_list_for_canceled.append(i)
     return new_list
 
 
