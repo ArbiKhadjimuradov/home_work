@@ -10,8 +10,10 @@ def test_mask_account():
 def test_mask_account_for_emty():
     assert mask_account_card("") == ""
 
+
 def test_get_data():
     assert get_data("2018-07-11T02:26:18.671407") == "11.07.2018"
+
 
 def test_get_data_for_emty():
     assert get_data("") == ""
