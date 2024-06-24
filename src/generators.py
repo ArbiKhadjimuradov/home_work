@@ -95,12 +95,11 @@ for _ in range(2):
     print(next(usd_transactions)["id"])
 
 
-def transaction_descriptions(transactions: list, ) -> Generator[dict, None, None]:
-    """Генератор который принимает список словарей и возврошает описание каждой операции"""
-    for i in transactions:
+def transaction_descriptions(transaction: list) -> Generator[dict, None, None]:
+    """Генератор который возврошает описание каждой операции"""
+    for i in transaction:
         if i["description"]:
             yield i["description"]
-
 
 
 descriptions = transaction_descriptions(transactions)
@@ -110,13 +109,10 @@ for _ in range(5):
 
 
 def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
-    number = []
     for number in range(start, end + 1):
-        yield number
-        number = str(number)
-        while len(card_number) < 16:
-            number = '0' + number
-            yield number
+        num = f"{number:016}"
+        formatted_number = f"{num[:4]} {num[4:8]} {num[8:12]} {num[12:]}"
+        yield formatted_number
 
 
 for card_number in card_number_generator(1, 5):
