@@ -82,7 +82,7 @@ transactions = (
 
 
 def filter_by_currency(trans: list, cur: str) -> Generator[dict, None, None]:
-    """Функция которая возврашает операции указаных валют"""
+    """Генератор который возврашает операции указаных валют"""
     for i in trans:
         if cur == i["operationAmount"]["currency"]["code"]:
             yield i
@@ -109,6 +109,7 @@ for _ in range(5):
 
 
 def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
+    """Генератор номеров банковских карт"""
     for number in range(start, end + 1):
         num = f"{number:016}"
         formatted_number = f"{num[:4]} {num[4:8]} {num[8:12]} {num[12:]}"
