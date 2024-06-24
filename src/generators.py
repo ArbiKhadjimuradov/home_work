@@ -1,3 +1,5 @@
+from typing import Generator
+
 transactions = (
     [
         {
@@ -79,30 +81,43 @@ transactions = (
 )
 
 
-
-# def filter_by_currency(transctions: list, name: str) -> list[str]:
-#     usd_transactions = []
-#     for i.get["name"] in transactions:
-#         if i != "USD":
-#             transactions.append(i)
-#     return usd_transactions
-#
-# usd_transactions = filter_by_currency(transactions, "USD")
-#
-# for _ in range(2):
-#     print(next(usd_transactions)["id"])
+def filter_by_currency(trans: list, cur: str) -> Generator[dict, None, None]:
+    """Функция которая возврашает операции указаных валют"""
+    for i in trans:
+        if cur == i["operationAmount"]["currency"]["code"]:
+            yield i
 
 
-#filter_by_currency = list(filter(lambda item: item["operationAmount"]["currency"]["name"], transactions))
-filter_by_currency = [item for item in transactions if "name" in item["operationAmount"]["currency"]]
-def filter_by_currency_func(transactions: list, name: str) -> list:
-    usd_transactions = ()
-    for name in transactions:
-        if name.get("USD") in name["operationAmount"]:
-            usd_transactions += name.get("amount")
-    yield usd_transactions
+usd_transactions = filter_by_currency(transactions, "USD")
 
-usd_transactions_ = filter_by_currency_func(transactions, "USD")
 
-for _ in transactions:
-    print(next(usd_transactions_))
+for _ in range(2):
+    print(next(usd_transactions)["id"])
+
+
+def transaction_descriptions(transactions: list, ) -> Generator[dict, None, None]:
+    """Генератор который принимает список словарей и возврошает описание каждой операции"""
+    for i in transactions:
+        if i["description"]:
+            yield i["description"]
+
+
+
+descriptions = transaction_descriptions(transactions)
+
+for _ in range(5):
+    print(next(descriptions))
+
+
+def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
+    number = []
+    for number in range(start, end + 1):
+        yield number
+        number = str(number)
+        while len(card_number) < 16:
+            number = '0' + number
+            yield number
+
+
+for card_number in card_number_generator(1, 5):
+    print(card_number)
