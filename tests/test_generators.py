@@ -24,3 +24,5 @@ def test_card_number_generator():
     assert next(generator) == '0000 0000 0000 0004'
     assert next(generator) == '0000 0000 0000 0005'
 
+
+
