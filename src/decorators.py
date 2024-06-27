@@ -10,16 +10,16 @@ def log(filename: Any) -> Callable:
         def wrapper(*args: Any, **kwargs: Any) -> Any:
             try:
                 if filename:
-                    result = func(*args, **kwargs)
+                    func(*args, **kwargs)
                     log_message = "my_function ok \n"
                     with open(filename, "a", encoding="utf-8") as file:
                         file.write(log_message)
                         print(log_message)
             except Exception as e:
-                log_error_message = f"my_function error: {e}. Inputs:{args}, {kwargs}"
+                error_mess = f"my_function error: {e}. Inputs:{args}, {kwargs}"
                 with open(filename, "a", encoding="utf-8") as file:
-                    file.write(log_error_message)
-                    print(log_error_message)
+                    file.write(error_mess)
+                    print(error_mess)
         return wrapper
 
     return decorator

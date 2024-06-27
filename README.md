@@ -48,3 +48,11 @@ pip install -r requirements.txt
 5. Произведено тестирование для модуля decorators.py 
  - с помощью фикстуры "capsys"
 
+### Покрытие тестами 
+- src\__init__.py	0	0	0	100%
+- src\decorators.py	24	0	0	100%
+- src\generators.py	23	0	0	100%
+- src\masks.py	12	2	0	83%
+- src\processing.py	14	0	0	100%
+- src\widget.py	18	4	0	78%
+- Total	91	6	0	93%
