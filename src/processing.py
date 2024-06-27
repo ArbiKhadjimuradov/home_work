@@ -7,8 +7,8 @@ old_list = [
 
 
 def filter_by_state(old_list: list, state: str = "EXECUTED") -> list[str]:
-    """Функция которая получает список словарей и возвращает новый список,
-    содержащий только те словари,у которых ключ state содержит переданное
+    """Функция, Которая получает список словарей и возвращает новый список,
+    содержащий только те словари, у которых ключ state содержит переданное
     в функцию значение"""
     new_list = []
     new_list_for_canceled = []
@@ -21,7 +21,7 @@ def filter_by_state(old_list: list, state: str = "EXECUTED") -> list[str]:
 
 
 def sort_by_date(old_list: list, is_date: bool = True) -> list[str]:
-    """функция которая возврашает список по убыванию"""
+    """Функция, Которая возвращает список по убыванию"""
     sort_old_list = sorted(old_list, key=lambda x: x["date"], reverse=is_date)
     return sort_old_list
 

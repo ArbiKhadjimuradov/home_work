@@ -20,17 +20,13 @@ def log(filename: Any) -> Callable:
                 with open(filename, "a", encoding="utf-8") as file:
                     file.write(log_error_message)
                     print(log_error_message)
-                if not filename:
-                    with open(filename, "a", encoding="utf-8") as file:
-                        file.write(log_error_message)
-                        print(log_error_message)
         return wrapper
 
     return decorator
 
 
 @log(filename="mylog.txt")
-def my_function(x, y):
+def my_function(x: int, y: int) -> int:
     return x + y
 
 
