@@ -186,6 +186,17 @@ files = [
 ]
 
 [[package]]
+name = "mylog"
+version = "0.0.1"
+description = "colored log for python"
+optional = false
+python-versions = ">=3"
+files = [
+    {file = "mylog-0.0.1-py3-none-any.whl", hash = "sha256:d67a1d7590e3c3e27e9cf13efb20c2eb613c122838e75c1a1c0f7951c08d098f"},
+    {file = "mylog-0.0.1.tar.gz", hash = "sha256:717d944f8d0ec49ec1998d9b122b7eeb68883a0791384bd8d4edf2871ee0787d"},
+]
+
+[[package]]
 name = "mypy"
 version = "1.10.0"
 description = "Optional static typing for Python"
@@ -369,4 +380,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "12aec68c2ad1274a60161347d52e7ca0aee6d671b6ac691a6c77e20488e89ea3"
+content-hash = "440501ba79ab987b3e6f1eca7fa47059bd719566f1ff9af602f94ac50218ba61"
