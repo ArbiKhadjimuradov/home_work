@@ -15,6 +15,8 @@ def log(filename: Any) -> Callable:
                     with open(filename, "a", encoding="utf-8") as file:
                         file.write(log_message)
                         print(log_message)
+                else:
+                    print("my_function ok \n")
             except Exception as e:
                 error_mess = f"my_function error: {e}. Inputs:{args}, {kwargs}"
                 with open(filename, "a", encoding="utf-8") as file:
