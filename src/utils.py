@@ -3,6 +3,7 @@ import json
 
 
 def get_operations_info(filename: str) -> list[dict]:
+    ''' Функция принимающая путь до файла и возвращающая python объект '''
     try:
         with open(filename, 'r', encoding='utf8') as f:
             data_info = json.load(f)
