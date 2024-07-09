@@ -1,29 +1,27 @@
-import os
-import json
 import requests
 from dotenv import load_dotenv
-
+from typing import Any
 
 load_dotenv('.env')
 
 transaction = ({
-    "id": 441945886,
+    "id": 41428829,
     "state": "EXECUTED",
-    "date": "2019-08-26T10:50:58.294041",
+    "date": "2019-07-03T18:35:29.512364",
     "operationAmount": {
-      "amount": "31957.58",
+      "amount": "8221.37",
       "currency": {
-        "name": "руб.",
-        "code": "RUB"
+        "name": "USD",
+        "code": "USD"
       }
     },
     "description": "Перевод организации",
-    "from": "Maestro 1596837868705199",
-    "to": "Счет 64686473678894779589"
+    "from": "MasterCard 7158300734726758",
+    "to": "Счет 35383033474447895560"
   })
 
 
-def all_amount_rub_convert(transaction: dict) -> float:
+def all_amount_rub_convert(transaction: dict) -> Any:
     ''' Функция возвращая сумму транзакции. '''
     try:
         amount = float(transaction["operationAmount"]["amount"])
@@ -31,30 +29,16 @@ def all_amount_rub_convert(transaction: dict) -> float:
         if currency == "RUB":
             return amount
         else:
-            API_KEY = os.getenv("api_key")
-            url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}&amount={amount}"
-            headers = {"apikey": API_KEY}
-            response = requests.get(url, headers=headers)
-            data = response.json()
-            return data["result"]
+            if currency or currency["operationAmount"]["currency"]["name"] != 'RUB':
+                API_KEY =  'a202nweusIq4m4HXuSN60zrAxl63pz71'
+                url = f'https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}'f'&amount={amount}'
+                headers = {"apikey": API_KEY}
+                response = requests.get(url, headers=headers)
+                data = response.json()
+                return data['result']
     except (KeyError, TypeError, ValueError, requests.RequestException) as e:
         print(f"Error: {e}")
         return 0.0
-
-        # # elif ['currency'] != "RUB":
-        # #     load_dotenv()
-        # #     API_KEY = os.getenv("API_KEY")
-        # #
-        # #     response = requests.get("https://api.apilayer.com/exchangerates_data/convert", headers={"apikey": API_KEY}, params={'from': currency, 'to': 'RUB', 'amount': amount})
-        # #     status_code = response.status_code
-        # #     result = response.text
-        # #     if response.status_code == 200:
-        # #         transaction = response.json()
-        # #     elif 'result' in transaction:
-        # #         amount = transaction['result']
-        # #     else:
-        # #         raise ValueError(f'Exchange rate for {currency} not found in API response')
-        #     return index
 
 
 if __name__ == '__main__':
