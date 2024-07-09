@@ -21,7 +21,7 @@ transaction = ({
   })
 
 
-load_dotenv(".env")
+load_dotenv()
 
 
 def all_amount_rub_convert(transaction: dict) -> Any:
@@ -34,7 +34,7 @@ def all_amount_rub_convert(transaction: dict) -> Any:
         else:
             if currency != 'RUB':
                 API_KEY = os.getenv("API_KEY")
-                url = f'https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}'f'&amount={amount}'
+                url = os.getenv("URL_API")
                 headers = {"apikey": API_KEY}
                 response = requests.get(url, headers=headers)
                 data = response.json()
