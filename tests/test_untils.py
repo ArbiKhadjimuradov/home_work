@@ -1,4 +1,3 @@
-import pytest
 from src.utils import get_operations_info
 
 

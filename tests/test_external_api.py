@@ -26,8 +26,9 @@ def test_all_amount(mock_get):
                                                'query': {'from': 'USD',
                                                          'to': 'RUB',
                                                          'amount': 8221.37},
-                                               'info': {'timestamp': 1720531985,
-                                                        'rate': 87.801624},
+                                               'info': {
+                                                   'timestamp': 1720531985,
+                                                   'rate': 87.801624},
                                                'date': '2024-07-09',
                                                'result': 721849.637505}
     assert all_amount_rub_convert(transaction) == 721812.781103

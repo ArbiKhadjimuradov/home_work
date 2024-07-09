@@ -1,6 +1,5 @@
 import pytest
 from src.widget import mask_account_card, get_data
-from src.processing import old_list
 
 
 def test_mask_account():

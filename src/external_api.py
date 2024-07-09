@@ -1,8 +1,8 @@
+import os
 import requests
 from dotenv import load_dotenv
 from typing import Any
 
-load_dotenv('.env')
 
 transaction = ({
     "id": 41428829,
@@ -21,6 +21,9 @@ transaction = ({
   })
 
 
+load_dotenv(".env")
+
+
 def all_amount_rub_convert(transaction: dict) -> Any:
     ''' Функция возвращая сумму транзакции. '''
     try:
@@ -29,8 +32,8 @@ def all_amount_rub_convert(transaction: dict) -> Any:
         if currency == "RUB":
             return amount
         else:
-            if currency or currency["operationAmount"]["currency"]["name"] != 'RUB':
-                API_KEY =  'a202nweusIq4m4HXuSN60zrAxl63pz71'
+            if currency != 'RUB':
+                API_KEY = os.getenv("API_KEY")
                 url = f'https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}'f'&amount={amount}'
                 headers = {"apikey": API_KEY}
                 response = requests.get(url, headers=headers)
