@@ -17,6 +17,8 @@ def mask_account_card(cards_number: str) -> str:
 
 def get_data(data: Any) -> Any:
     """Функция которая возврашает дату"""
+    if data == "":
+        return ""
 
     d = datetime.strptime(data, format("%Y-%m-%dT%H:%M:%S.%f"))
     return d.strftime("%d.%m.%Y")
