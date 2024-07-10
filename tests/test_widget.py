@@ -27,5 +27,5 @@ def test_get_data_for_emty():
     ("2019-07-03T18:35:29.512364", "03.07.2019")
 ]
                          )
-def test_get_data_add(data, expected):
+def test_get_data_add(data: str, expected: str):
     assert get_data(data) == expected
