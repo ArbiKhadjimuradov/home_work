@@ -24,7 +24,7 @@ transaction = ({
 load_dotenv()
 
 
-def all_amount_rub_convert(transaction: dict) -> Any:
+def all_amount_rub_convert(transaction: Any) -> Any:
     ''' Функция возвращая сумму транзакции. '''
     try:
         amount = float(transaction["operationAmount"]["amount"])
@@ -34,7 +34,7 @@ def all_amount_rub_convert(transaction: dict) -> Any:
         else:
             if currency != 'RUB':
                 API_KEY = os.getenv("API_KEY")
-                url = os.getenv("URL_API")
+                url = os.getenv(f"{'URL_API'}")
                 headers = {"apikey": API_KEY}
                 response = requests.get(url, headers=headers)
                 data = response.json()

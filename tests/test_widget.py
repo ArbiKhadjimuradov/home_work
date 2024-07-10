@@ -3,7 +3,8 @@ from src.widget import mask_account_card, get_data
 
 
 def test_mask_account():
-    assert mask_account_card("Visa Platinum 8990922113665229") == "Visa Platinum 8990 92** **** 5229"
+    assert (mask_account_card("Visa Platinum 8990922113665229") ==
+            "Visa Platinum 8990 92** **** 5229")
 
 
 def test_mask_account_for_emty():
