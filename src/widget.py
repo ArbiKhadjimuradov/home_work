@@ -4,8 +4,7 @@ from typing import Any
 
 
 def mask_account_card(cards_number: str) -> str:
-    """Функция которая маскирует номер карты и счета."""
-
+    """Функция, которая маскирует номер карты и счета."""
     if "Счет" in cards_number:
         mask_account = f"Счет {get_mask_account(cards_number[:])}"
         return mask_account
@@ -16,7 +15,7 @@ def mask_account_card(cards_number: str) -> str:
 
 
 def get_data(data: Any) -> Any:
-    """Функция которая возврашает дату"""
+    """Функция, которая возвращает дату."""
     if data == "":
         return ""
 
