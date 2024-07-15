@@ -1,7 +1,8 @@
 from src.decorators import my_function, log
+from typing import Any
 
 
-def test_log(capsys):
+def test_log(capsys: Any) -> Any:
     log(filename="mylog.txt")
     my_function(1, "2")
     captured = capsys.readouterr()
@@ -9,7 +10,7 @@ def test_log(capsys):
                             "for +: 'int' and 'str'. Inputs:(1, '2'), {}\n")
 
 
-def test_log_for_emty(capsys):
+def test_log_for_emty(capsys: Any) -> Any:
     log(filename="")
     my_function(1, "2")
     captured = capsys.readouterr()
@@ -17,7 +18,7 @@ def test_log_for_emty(capsys):
                             "for +: 'int' and 'str'. Inputs:(1, '2'), {}\n")
 
 
-def test_for_emty(capsys):
+def test_for_emty(capsys: Any) -> Any:
     log(filename="")
     my_function(1, 2)
     captured = capsys.readouterr()

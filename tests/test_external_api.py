@@ -1,6 +1,6 @@
 from unittest.mock import patch
 from src.external_api import all_amount_rub_convert
-
+from typing import Any
 
 transaction = ({
     "id": 41428829,
@@ -20,7 +20,7 @@ transaction = ({
 
 
 @patch("requests.get")
-def test_all_amount(mock_get):
+def test_all_amount(mock_get: Any) -> Any:
     mock_get.return_value.status_code = 200
     mock_get.return_value.json.return_value = {'success': True,
                                                'query': {'from': 'USD',
