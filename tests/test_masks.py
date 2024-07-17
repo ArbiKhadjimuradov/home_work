@@ -3,8 +3,8 @@ from typing import Any
 
 
 def test_get_mask_account() -> Any:
-    assert get_mask_account("73654108430135874305") == "**4305"
-
+    assert get_mask_account("Счет 73654108430135874305") == "**4305"
+    assert get_mask_account('') == ''
     assert len(get_mask_account("**4305")) == 0
 
 
