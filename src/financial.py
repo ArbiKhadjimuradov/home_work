@@ -62,4 +62,4 @@ def open_excel_data(file: str) -> list[dict]:
     return result
 
 
-print(open_excel_data('../data/transactions_excel.xlsx'))
+print(open_excel_data("../data/transactions_excel.xlsx"))
