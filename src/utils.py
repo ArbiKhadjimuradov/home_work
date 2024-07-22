@@ -100,3 +100,4 @@ def get_info_transactions_xlsx(path_file: str) -> list[dict] | list:
         logger.warning("файл не найден, неверный путь до файла")
         logger.info("Завершение работы")
         return []
+

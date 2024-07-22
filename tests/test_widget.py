@@ -4,8 +4,7 @@ from typing import Any
 
 
 def test_mask_account() -> Any:
-    assert (mask_account_card("Visa Platinum 8990922113665229") ==
-            "Visa Platinum 8990 92** **** 5229")
+    assert (mask_account_card("Visa Platinum 8990922113665229") == "Visa Platinum 8990 92** **** 5229")
 
 
 def test_mask_account_for_emty() -> Any:
@@ -26,7 +25,6 @@ def test_get_data_for_emty() -> Any:
     ("2018-09-12T21:27:25.241689", "12.09.2018"),
     ("2018-06-30T02:08:58.425572", "30.06.2018"),
     ("2019-07-03T18:35:29.512364", "03.07.2019")
-]
-                         )
+])
 def test_get_data_add(data: str, expected: str) -> Any:
     assert get_data(data) == expected

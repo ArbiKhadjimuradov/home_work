@@ -66,19 +66,19 @@ transactions = [
 ]
 
 
-def filter_by_currency(transaction: list, currency: str) -> Any:
+def filter_by_currency(transaction: list, cur: str) -> Any:
     """
     Функция итерирует и возвращает операции из списка словарей."""
     for trans in transaction:
-        if trans.get("operationAmount", "")["currency"]["code"] == currency:
+        if trans.get("operationAmount", "")["currency"]["code"] == cur:
             yield trans
 
 
 usd_transactions = filter_by_currency(transactions, "USD")
 
 
-# for _ in range(2):
-#     print(next(usd_transactions)["id"])
+for _ in range(2):
+    print(next(usd_transactions)["id"])
 
 
 def transaction_descriptions(transaction: list) -> Generator[dict, None, None]:
@@ -90,8 +90,8 @@ def transaction_descriptions(transaction: list) -> Generator[dict, None, None]:
 
 descriptions = transaction_descriptions(transactions)
 
-# for _ in range(5):
-#     print(next(descriptions))
+for _ in range(5):
+    print(next(descriptions))
 
 
 def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
@@ -102,5 +102,5 @@ def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
         yield formatted_number
 
 
-# for card_number in card_number_generator(1, 5):
-#     print(card_number)
+for card_number in card_number_generator(1, 5):
+    print(card_number)
