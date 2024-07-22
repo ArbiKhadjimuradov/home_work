@@ -1,7 +1,4 @@
-import pytest
-from src.financial import open_csv_data, open_excel_data
 from unittest.mock import patch, mock_open
-from tests.conftest import test_info_xlcx, test_info_csv
 
 
 # def test_get_info_transaction(test_info_csv, test_info_xlcx):

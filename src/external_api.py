@@ -44,4 +44,4 @@ def all_amount_rub_convert(transaction: Any) -> Any:
 
 
 if __name__ == "__main__":
-    print(all_amount_rub_convert(transaction))
+    all_amount_rub_convert(transaction)

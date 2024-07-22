@@ -14,14 +14,14 @@ def log(filename: Any) -> Callable:
                     log_message = "my_function ok \n"
                     with open(filename, "a", encoding="utf-8") as file:
                         file.write(log_message)
-                        print(log_message)
+                    # print(log_message)
                 else:
                     print("my_function ok \n")
             except Exception as e:
                 error_mess = f"my_function error: {e}. Inputs:{args}, {kwargs}"
                 with open(filename, "a", encoding="utf-8") as file:
                     file.write(error_mess)
-                    print(error_mess)
+                    # print(error_mess)
 
         return wrapper
 

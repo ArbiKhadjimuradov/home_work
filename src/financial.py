@@ -4,10 +4,7 @@ import logging
 
 
 logger = logging.getLogger("utils")
-file_handler = logging.FileHandler("../logs/financial.log", encoding="utf-8")
 f_fo = logging.Formatter("%(asctime)s %(filename)s %(levelname)s: %(message)s")
-file_handler.setFormatter(f_fo)
-logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
 
 
@@ -62,4 +59,6 @@ def open_excel_data(file: str) -> list[dict]:
     return result
 
 
-print(open_excel_data("../data/transactions_excel.xlsx"))
+if __name__ == '__main__':
+    open_csv_data('../data/transactions.csv')
+    open_excel_data("../data/transactions_excel.xlsx")

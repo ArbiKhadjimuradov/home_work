@@ -26,5 +26,5 @@ def get_data(data: Any) -> Any:
 
 
 if __name__ == "__main__":
-    print(mask_account_card("Visa 3033474447895560"))
-    print(get_data("2018-07-11T02:26:18.671407"))
+    mask_account_card("Visa 3033474447895560")
+    get_data("2018-07-11T02:26:18.671407")

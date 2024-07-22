@@ -32,9 +32,6 @@ def sort_by_date(old_list: list, is_date: bool = True) -> list[str]:
     return sort_old_list
 
 
-print(
-    filter_by_state(old_list, state="EXECUTED"),
-)
-print(
-    sort_by_date(old_list),
-)
+if __name__ == '__main__':
+    filter_by_state(old_list, state="EXECUTED")
+    sort_by_date(old_list)
